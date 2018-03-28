@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" rel="external nofollow" />
     <title>添加标注点-百度地图API</title>
     <!-- css样式文件 -->
     <style type="text/css">
@@ -47,11 +48,29 @@
             line-height: 26px;
             font-size: 15px;
             color: #D81E06;
+            border: none;
         }
         
         .info_span {
             width: 80px;
             display: inline-block;
+        }
+        
+        .btn {
+            width: 80px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #D81E06;
+            color: #fff;
+            margin: 0 auto;
+        }
+        
+        .ta-c {
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -208,6 +227,9 @@
                 sContent += '       <span class="info_span">所在地点：</span>';
                 sContent += '       <span>' + point.place + '</span>';
                 sContent += '   </li>';
+                sContent += '   <li class="ta-c info_lierr">';
+                sContent += '       <div class="btn" onclick=func("' + point.name + '")>' + "检修" + '</div>';
+                sContent += '   </li>';
                 sContent += '</ul>';
             } else {
                 sContent += '<ul class="info_ul info_ui_Nimg">';
@@ -231,6 +253,11 @@
 
             //图片加载完毕重绘infowindow
             thisMaker.openInfoWindow(infoWindow);
+        };
+
+        // 弹窗增加点击事件
+        function func(data) {
+            alert("点击了机器编号为：" + data + "\n已经提交检修");
         }
     </script>
 </body>
